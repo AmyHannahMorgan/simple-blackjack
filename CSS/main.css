@@ -1,3 +1,6 @@
+/* imports */
+@import url('https://fonts.googleapis.com/css?family=Noto+Sans|Vollkorn&display=swap');
+
 /* root */
 :root{
     --black-text-color: #111111;
@@ -7,6 +10,9 @@
     --error-color: #d90429;
     --highlight-dark: #92dce5;
     --highlight-light: #0eb1d2;
+
+    --display-font: 'Vollkorn', serif;
+    --print-font: 'Noto Sans', sans-serif;
 }
 
 /* animations */
