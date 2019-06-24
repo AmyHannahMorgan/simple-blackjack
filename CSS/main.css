@@ -1,0 +1,22 @@
+/* root */
+:root{
+    --black-text-color: #111111;
+    --white-text-color: #eee5e9;
+    --dark-bg-color: #111111;
+    --light-bg-color: #eee5e9;
+    --error-color: #d90429;
+    --highlight-dark: #92dce5;
+    --highlight-light: #0eb1d2;
+}
+
+/* ids */
+body {
+    margin: 0;
+}
+
+/* classes */
+.startMenu {
+    margin: auto;
+    max-width: 75vw;
+    background-color: 
+}
