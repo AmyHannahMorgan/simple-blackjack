@@ -43,6 +43,15 @@ body {
     overflow: hidden;
 }
 
+.startMenu > h1 {
+    font-family: var(--display-font);
+    color: var(--black-text-color);
+    text-align: center;
+    font-size: 20vw;
+
+    margin: auto;
+}
+
 .startMenu > .imageHeader {
     margin: auto;
     margin-top: 1vh;
