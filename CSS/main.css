@@ -70,3 +70,44 @@ body {
 
     animation: wiggle 1s ease-in-out infinite alternate;
 }
+
+.startMenu > .buttonContainer {
+    display: grid;
+    grid-template-columns: [edge-spacer-start] 5vw [horizontal-area-1] auto [horizontal-spacer] 5vw [horizontal-area-2] auto [edge-spacer-end] 5vw;
+    grid-template-rows: [vertical-area-1] auto [center-spacer] 5vh [vertical-area-2] auto;
+
+    margin: auto;
+    margin-top: 5vh;
+    width: 50vw;
+    height: auto;
+}
+
+.buttonContainer > .buttonGrid {
+    display: flex;
+    justify-content: center;
+}
+
+.buttonContainer > .buttonGrid.play {
+    grid-column: horizontal-area-1 / edge-spacer-end;
+    grid-row: vertical-area-1 / center-spacer;
+}
+
+.buttonContainer > .buttonGrid.rules {
+    grid-column: horizontal-area-1 / edge-spacer-end;
+    grid-row: vertical-area-2;
+}
+
+.buttonGrid > button {
+    border: none;
+    background-color: var(--dark-bg-color);
+    
+    color: var(--white-text-color);
+    font-family: var(--print-font);
+    font-size: 15vw;
+
+    transition: background-color 0.25s ease-in-out;
+}
+
+.buttonGrid > button:hover {
+    background-color: var(--highlight-light);
+}
