@@ -32,6 +32,8 @@ body {
 }
 
 /* classes */
+
+/* start menu */
 .startMenu {
     margin: auto;
     /* TODO: move below to desktop/landscape query */
@@ -115,6 +117,10 @@ body {
     background-color: var(--highlight-light);
 }
 
+/* game screen */
+
+
+/* modals */
 .modal {
     display: none;
 
