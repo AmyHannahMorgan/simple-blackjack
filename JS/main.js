@@ -2,8 +2,12 @@ const playButton = document.querySelector('#playButton');
 const rulesButton = document.querySelector('#rulesButton');
 const rulesModal = document.querySelector('#rulesModal');
 
-playButton.addEventListener('click', _ => {
+const startMenu = document.querySelector(".startMenu");
+const gameScreen = document.querySelector(".gameScreen");
 
+playButton.addEventListener('click', _ => {
+    startMenu.style.display = "none";
+    gameScreen.style.display = "block";
 });
 
 rulesButton.addEventListener('click', _ =>{

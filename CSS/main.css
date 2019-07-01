@@ -118,7 +118,9 @@ body {
 }
 
 /* game screen */
-
+.gameScreen {
+    display: none;
+}
 
 /* modals */
 .modal {
