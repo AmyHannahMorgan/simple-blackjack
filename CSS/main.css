@@ -120,6 +120,79 @@ body {
 /* game screen */
 .gameScreen {
     display: none;
+    
+    width: 100vw;
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+.gameScreen > h2 {
+    font-family: var(--display-font);
+    font-size: 6vmin;
+    color: var(--black-text-color);
+
+    margin: 1vmin;
+}
+
+.gameScreen > .handDisplay {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    width: 95%;
+    height: 25vh;
+
+    margin: 1vmin auto;
+
+    border: solid medium var(--highlight-light);
+    border-radius: 25px;
+
+    overflow: hidden;
+}
+
+/* cards */
+.card {
+    background-color: transparent;
+    height: 20vh;
+    width: 14.3vh;
+
+    perspective: 1000px;
+}
+
+.card:first-of-type {
+    margin-left: 1vmin;
+}
+
+.card:last-of-type {
+    margin-right: 1vmin;
+}
+
+.card > .cardInner {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
+    
+    transition: transform 0.5s;
+    transform-origin: center;
+    transform-style: preserve-3d;
+}
+
+.card.flip > .cardInner {
+    transform: rotateY(180deg);
+}
+
+.card > .cardInner > .cardFront, .card > .cardInner > .cardBack {
+    position: absolute;
+    height: 100%;
+
+    backface-visibility: hidden;
+
+    object-fit: contain;
+}
+
+.card > .cardInner > .cardBack {
+    transform: rotateY(180deg);
 }
 
 /* modals */
