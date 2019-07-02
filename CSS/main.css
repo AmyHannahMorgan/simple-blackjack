@@ -308,6 +308,11 @@ body {
     font-size: 4vmin;
 }
 
+/* extra classes */
+.bust {
+    background-color: var(--error-color);
+}
+
 /* media queries */
 @media only screen and (orientation: landscape){
     .buttonContainer > .buttonGrid.play {
