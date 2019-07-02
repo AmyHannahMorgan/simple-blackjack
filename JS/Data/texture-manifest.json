@@ -1,5 +1,5 @@
 {
-    "card-fronts": {
+    "fronts": {
         "root": "Assets/Cards/",
         "spades": {
             "root": "Spades/",
@@ -74,7 +74,7 @@
             }
         }
     },
-    "card-backs": {
+    "backs": {
         "root": "Assets/Card Backs/",
         "backs": {
             "default": "card-back-1.svg"
