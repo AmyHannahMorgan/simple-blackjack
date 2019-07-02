@@ -78,6 +78,11 @@ class Deck {
         this.drawn.push(card);
         return card;
     }
+
+    reset() {
+        this.cards.concat(this.drawn);
+        this.drawn = [];
+    }
 }
 
 function rng(min, max) {
