@@ -1,3 +1,10 @@
+import {Deck} from './Modules/cards.js';
+
+const testDeck = new Deck(1);
+console.log(testDeck.cards);
+testDeck.shuffle();
+console.log(testDeck.cards);
+
 const tManifestURL = "JS/Data/texture-manifest.json";
 const cardBack = "default";
 let textures;
