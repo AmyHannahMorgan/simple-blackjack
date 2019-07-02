@@ -1,9 +1,6 @@
 import {Deck} from './Modules/cards.js';
 
-const testDeck = new Deck(1);
-console.log(testDeck.cards);
-testDeck.shuffle();
-console.log(testDeck.cards);
+const deck = new Deck(2);
 
 const tManifestURL = "JS/Data/texture-manifest.json";
 const cardBack = "default";
@@ -27,8 +24,29 @@ const playerScore = gameScreen.querySelector('#playerScore');
 window.addEventListener('gameStart', _ => {
     gameScreen.style.display = 'block'; 
     console.log('event fired');
+    startGame();
 });
 
 function startGame() {
 
+}
+
+function spawnCard(cardObj, flipped, cardFrontSrc, cardBackSrc) {
+    let cardElem = document.createElement('div');
+    cardElem.classList.add('card');
+    cardObj.link(cardElem);
+    
+    let cardInner = document.createElement('div');
+    cardInner.classList.add('cardInner');
+    cardElem.appendChild(cardInner);
+
+    let cardFront = document.createElement('img');
+    cardFront.classList.add('cardFront');
+    cardFront.src = cardFrontSrc;
+    cardInner.appendChild(cardFront);
+
+    let cardBack = document.createElement('img');
+    cardBack.classList.add('cardBack');
+    cardBack.src = cardBackSrc;
+    cardInner.appendChild(cardBack);
 }
