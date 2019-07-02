@@ -38,10 +38,10 @@ class Card {
 class Deck {
     constructor(deckCount) {
         let cardDict = {
-            1: "ace",
-            11: "jack",
-            12: "queen",
-            13: "king"
+            "1": "ace",
+            "11": "jack",
+            "12": "queen",
+            "13": "king"
         }
         let suits = ['spades', 'hearts', 'clubs', 'diamonds'];
         this.cards = [];
@@ -50,7 +50,7 @@ class Deck {
             for(let s = 0; s < suits.length; s++) {
                 for(let c = 1; c < 14; c++) {
                     let name;
-                    if(Object.keys(cardDict).includes(c)) {
+                    if(Object.keys(cardDict).includes(`${c}`)) {
                         name = cardDict[c];
                     }
                     else {
