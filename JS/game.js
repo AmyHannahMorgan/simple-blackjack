@@ -110,18 +110,33 @@ function end(condition, data) {
     switch(condition) {
         case 1: // normal end, both players stand. check for draw
             console.log('all players stood');
+            if(dealer.score === player.score) console.log('draw');
+            else{
+                if(dealer.score > player.score) console.log('dealer wins');
+                else console.log('player wins');
+            }
             break;
         case 2: // player blackjack, check for dealer blackjack
             console.log('player has blackjack');
+            dealer.hand[1].flip();
+            dealer.calculateScore();
+            if(dealer.score === player.score) console.log('draw');
+            else{
+                if(dealer.score > player.score) console.log('dealer wins');
+                else console.log('player wins');
+            }
             break;
         case 3: // dealer blackjack
             console.log('dealer has blackjack');
+            dealer.hand[1].flip();
             break;
         case 4: // player bust
             console.log('player went bust');
+            console.log('dealer wins');
             break;
         case 5: // dealer bust
             console.log('dealer went bust');
+            console.log('player wins');
             break;
     }
 }
