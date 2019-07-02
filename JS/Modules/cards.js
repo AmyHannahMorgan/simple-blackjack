@@ -45,6 +45,7 @@ class Deck {
         }
         let suits = ['spades', 'hearts', 'clubs', 'diamonds'];
         this.cards = [];
+        this.drawn = [];
         for(let i = 0; i < deckCount; i++) {
             for(let s = 0; s < suits.length; s++) {
                 for(let c = 1; c < 14; c++) {
@@ -70,6 +71,12 @@ class Deck {
         }
         this.cards = shuffled;
         return this.cards;
+    }
+
+    draw() {
+        let card = this.cards.shift();
+        this.drawn.push(card);
+        return card;
     }
 }
 
