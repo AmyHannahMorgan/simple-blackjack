@@ -26,6 +26,10 @@ let started = false;
 hitButton.addEventListener('click', _ => {
     if(started) {
         hit(deck, player, false);
+        let playerScore = player.calculateScore(false);
+        if(playerScore[1]) {
+
+        }
     }
 });
 standButton.addEventListener('click', _ => {
@@ -52,8 +56,15 @@ function startGame() {
     hit(deck, dealer, false);
     hit(deck, player, false);
     hit(deck, dealer, true);
-    player.calculateScore(true);
-    dealer.calculateScore(true);
+    let playerScore = player.calculateScore(true);
+    let dealerScore = dealer.calculateScore(true);
+    if(playerScore[2]) {
+
+    }
+    else if(dealerScore[2]) {
+
+    }
+    started = true;
 }
 
 function hit(deckObject, playerObject, flipped) {
