@@ -93,5 +93,6 @@ function spawnCard(cardObj, flipped, cardFrontSrc, cardBackSrc) {
 
 function fetchTexture(cardObj) {
     return textures.fronts.root +
+    textures.fronts[cardObj.suit]['root'] +
     textures.fronts[cardObj.suit]['cards'][cardObj.name];
 }
