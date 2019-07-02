@@ -17,6 +17,7 @@ const gameScreen = document.querySelector('.gameScreen');
 const hitButton = gameScreen.querySelector('#hitButton');
 const standButton = gameScreen.querySelector('#standButton');
 
+const dealerStandValue = 17;
 const dealer = new Player(gameScreen.querySelector('#dealerHand'), 
 gameScreen.querySelector('#dealerScore'));
 const player = new Player(gameScreen.querySelector('#playerHand'), 
@@ -77,6 +78,10 @@ function hit(deckObject, playerObject, flipped) {
 }
 
 function stand() {
+
+}
+
+function dealerAi() {
 
 }
 
