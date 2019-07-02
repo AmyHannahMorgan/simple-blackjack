@@ -80,9 +80,13 @@ function hit(deckObject, playerObject, flipped) {
 
 function stand() {
     playerStood = true;
+    dealer.hand[1].element.addEventListener('transitionend', function foo() {
+        dealer.hand[1].element.removeEventListener('transitionend', foo);
+        dealerAi();
+    });
     dealer.hand[1].flip();
     dealer.calculateScore();
-    dealerAi();
+    
 }
 
 function dealerAi() {
@@ -98,21 +102,26 @@ function dealerAi() {
         return;
     }
     else{
-        return dealerAi();
+        setTimeout(dealerAi, 1000);
     }
 }
 
 function end(condition, data) {
     switch(condition) {
         case 1: // normal end, both players stand. check for draw
+            console.log('all players stood');
             break;
         case 2: // player blackjack, check for dealer blackjack
+            console.log('player has blackjack');
             break;
         case 3: // dealer blackjack
+            console.log('dealer has blackjack');
             break;
         case 4: // player bust
+            console.log('player went bust');
             break;
         case 5: // dealer bust
+            console.log('dealer went bust');
             break;
     }
 }
