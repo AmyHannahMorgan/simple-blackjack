@@ -165,6 +165,7 @@ class Player {
         this.scoreElement.innerHTML = `${workingScore}`;
         if(bust){
             this.scoreElement.classList.add('bust');
+            this.scoreElement.innerHTML += ' BUST!';
         }
 
         return [this.score, bust, blackjack];
