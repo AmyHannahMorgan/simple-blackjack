@@ -36,6 +36,14 @@ function startGame() {
 
 }
 
+function hit() {
+    
+}
+
+function stand() {
+
+}
+
 function spawnCard(cardObj, flipped, cardFrontSrc, cardBackSrc) {
     let cardElem = document.createElement('div');
     cardElem.classList.add('card');
@@ -54,4 +62,9 @@ function spawnCard(cardObj, flipped, cardFrontSrc, cardBackSrc) {
     cardBack.classList.add('cardBack');
     cardBack.src = cardBackSrc;
     cardInner.appendChild(cardBack);
+}
+
+function fetchTexture(cardObj) {
+    return textures.fronts.root +
+    textures.fronts[cardObj.suit]['cards'][cardObj.name];
 }
