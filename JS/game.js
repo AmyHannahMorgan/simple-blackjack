@@ -28,7 +28,7 @@ hitButton.addEventListener('click', _ => {
         hit(deck, player, false);
         let playerScore = player.calculateScore(false);
         if(playerScore[1]) {
-
+            end(4);
         }
     }
 });
@@ -59,10 +59,10 @@ function startGame() {
     let playerScore = player.calculateScore(true);
     let dealerScore = dealer.calculateScore(true);
     if(playerScore[2]) {
-
+        end(2);
     }
     else if(dealerScore[2]) {
-
+        end(3);
     }
     started = true;
 }
@@ -78,6 +78,21 @@ function hit(deckObject, playerObject, flipped) {
 
 function stand() {
 
+}
+
+function end(condition, data) {
+    switch(condition) {
+        case 1: // normal end, both players stand. check for draw
+            break;
+        case 2: // player blackjack, check for dealer blackjack
+            break;
+        case 3: // dealer blackjack
+            break;
+        case 4: // player bust
+            break;
+        case 5: // dealer bust
+            break;
+    }
 }
 
 function spawnCard(cardObj, flipped, cardFrontSrc, cardBackSrc) {
