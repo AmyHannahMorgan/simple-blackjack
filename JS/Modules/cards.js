@@ -1,4 +1,4 @@
-export class Card {
+class Card {
     constructor(suit, number, name, flipped) {
         this.suit = suit;
         this.number = number;
@@ -35,7 +35,7 @@ export class Card {
     }
 }
 
-export class Deck {
+class Deck {
     constructor(deckCount) {
         let cardDict = {
             1: "ace",
@@ -66,7 +66,7 @@ export class Deck {
         let shuffled = [];
         for(let i = 0; this.cards.length > 0; i++) {
             let index = rng(0, this.cards.length);
-            shuffled.push(this.cards.splice(index, 1));
+            shuffled.push(this.cards.splice(index, 1)[0]);
         }
         this.cards = shuffled;
         return this.cards;
@@ -76,3 +76,5 @@ export class Deck {
 function rng(min, max) {
     return Math.random() * (max - min) + min;
 }
+
+export {Card, Deck};
