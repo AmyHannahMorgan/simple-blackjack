@@ -150,6 +150,46 @@ body {
     overflow: hidden;
 }
 
+/* contols grid */
+.controls {
+    display: grid;
+    grid-template-columns: [horizontal-area-1] 1fr [horizontal-spacer] 5vw [horizontal-area-2] 1fr;
+    grid-template-rows: [vertical-area-1] auto [center-spacer] 5vh [vertical-area-2] auto;
+
+    width: 60vw;
+    max-width: 60vw;
+
+    margin: 5vh auto 0;
+}
+
+.controls > .controlsGrid {
+    display: flex;
+    justify-content: center;
+}
+
+.controls > .controlsGrid.hit {
+    grid-column: horizontal-area-1 / span 3;
+    grid-row: vertical-area-1 / center-spacer;
+}
+
+.controls > .controlsGrid.stand {
+    grid-column: horizontal-area-1 / span 3;
+    grid-row: vertical-area-2;
+}
+
+.controlsGrid > button {
+    border: none;
+    background-color: var(--dark-bg-color);
+
+    width: 100%;
+    
+    color: var(--white-text-color);
+    font-family: var(--print-font);
+    font-size: 10vmin;
+
+    transition: background-color 0.25s ease-in-out;
+}
+
 /* cards */
 .card {
     background-color: transparent;
@@ -276,6 +316,16 @@ body {
     }
     
     .buttonContainer > .buttonGrid.rules {
+        grid-column: horizontal-area-2 / edge-spacer-end;
+        grid-row: vertical-area-1 / center-spacer;
+    }
+
+    .controls > .controlsGrid.hit {
+        grid-column: horizontal-area-1 / horizontal-spacer;
+        grid-row: vertical-area-1 / center-spacer;
+    }
+    
+    .controls > .controlsGrid.stand {
         grid-column: horizontal-area-2 / edge-spacer-end;
         grid-row: vertical-area-1 / center-spacer;
     }
