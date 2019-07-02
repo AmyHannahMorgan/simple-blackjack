@@ -95,7 +95,8 @@ class Player {
     }
 
     appendCard(cardObject, cardElement) {
-
+        this.hand.push(cardObject);
+        this.handElement.appendChild(cardElement);
     }
 
     calculateScore() {
