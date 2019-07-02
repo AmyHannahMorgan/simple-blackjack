@@ -14,11 +14,25 @@ manifestReq.addEventListener('load', function() {
 manifestReq.send();
 
 const gameScreen = document.querySelector('.gameScreen');
+const hitButton = gameScreen.querySelector('#hitButton');
+const standButton = gameScreen.querySelector('#standButton');
 
 const dealer = new Player(gameScreen.querySelector('#dealerHand'), 
 gameScreen.querySelector('#dealerScore'));
 const player = new Player(gameScreen.querySelector('#playerHand'), 
 gameScreen.querySelector('#playerScore'));
+
+let started = false;
+hitButton.addEventListener('click', _ => {
+    if(started) {
+        hit(deck, player, false);
+    }
+});
+stand.addEventListener('click', _ => {
+    if(started) {
+        stand();
+    }
+});
 
 // const dealerHand = gameScreen.querySelector('#dealerHand');
 // const playerHand = gameScreen.querySelector('#playerHand');
@@ -53,7 +67,7 @@ function spawnCard(cardObj, flipped, cardFrontSrc, cardBackSrc) {
     let cardElem = document.createElement('div');
     cardElem.classList.add('card');
     cardObj.link(cardElem);
-    
+
     if(flipped) cardObj.flip();
 
     let cardInner = document.createElement('div');
