@@ -1,4 +1,4 @@
-import {Deck} from './Modules/cards.js';
+import {Deck, Player} from './Modules/cards.js';
 
 const deck = new Deck(2);
 
@@ -15,11 +15,14 @@ manifestReq.send();
 
 const gameScreen = document.querySelector('.gameScreen');
 
-const dealerHand = gameScreen.querySelector('#dealerHand');
-const playerHand = gameScreen.querySelector('#playerHand');
+const dealer = new Player(gameScreen.querySelector('#dealerHand'), gameScreen.querySelector('#dealerScore'));
+const player = new Player(gameScreen.querySelector('#playerHand'), gameScreen.querySelector('#playerScore'));
 
-const dealerScore = gameScreen.querySelector('#dealerScore');
-const playerScore = gameScreen.querySelector('#playerScore');
+// const dealerHand = gameScreen.querySelector('#dealerHand');
+// const playerHand = gameScreen.querySelector('#playerHand');
+
+// const dealerScore = gameScreen.querySelector('#dealerScore');
+// const playerScore = gameScreen.querySelector('#playerScore');
 
 window.addEventListener('gameStart', _ => {
     gameScreen.style.display = 'block'; 
@@ -35,7 +38,7 @@ function spawnCard(cardObj, flipped, cardFrontSrc, cardBackSrc) {
     let cardElem = document.createElement('div');
     cardElem.classList.add('card');
     cardObj.link(cardElem);
-    
+
     let cardInner = document.createElement('div');
     cardInner.classList.add('cardInner');
     cardElem.appendChild(cardInner);
