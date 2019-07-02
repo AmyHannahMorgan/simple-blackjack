@@ -15,8 +15,10 @@ manifestReq.send();
 
 const gameScreen = document.querySelector('.gameScreen');
 
-const dealer = new Player(gameScreen.querySelector('#dealerHand'), gameScreen.querySelector('#dealerScore'));
-const player = new Player(gameScreen.querySelector('#playerHand'), gameScreen.querySelector('#playerScore'));
+const dealer = new Player(gameScreen.querySelector('#dealerHand'), 
+gameScreen.querySelector('#dealerScore'));
+const player = new Player(gameScreen.querySelector('#playerHand'), 
+gameScreen.querySelector('#playerScore'));
 
 // const dealerHand = gameScreen.querySelector('#dealerHand');
 // const playerHand = gameScreen.querySelector('#playerHand');
