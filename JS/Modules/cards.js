@@ -85,8 +85,26 @@ class Deck {
     }
 }
 
+class Player {
+    constructor(handElement, scoreElement) {
+        this.hand = [];
+        this.handElement = handElement;
+
+        this.score = 0;
+        this.scoreElement = scoreElement;
+    }
+
+    appendCard(cardObject, cardElement) {
+
+    }
+
+    calculateScore() {
+
+    }
+}
+
 function rng(min, max) {
     return Math.random() * (max - min) + min;
 }
 
-export {Card, Deck};
+export {Card, Deck, Player};
