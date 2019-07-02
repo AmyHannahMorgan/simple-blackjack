@@ -1,4 +1,5 @@
 const tManifestURL = "JS/Data/texture-manifest.json";
+const cardBack = "default";
 let textures;
 
 let manifestReq = new XMLHttpRequest();
@@ -8,14 +9,19 @@ manifestReq.addEventListener('load', function() {
 });
 manifestReq.send();
 
-const ggameScreen = document.querySelector('.gameScreen');
+const gameScreen = document.querySelector('.gameScreen');
 
-const dealerHand = ggameScreen.querySelector('#dealerHand');
-const playerHand = ggameScreen.querySelector('#playerHand');
+const dealerHand = gameScreen.querySelector('#dealerHand');
+const playerHand = gameScreen.querySelector('#playerHand');
 
-const dealerScore = ggameScreen.querySelector('#dealerScore');
-const playerScore = ggameScreen.querySelector('#playerScore');
+const dealerScore = gameScreen.querySelector('#dealerScore');
+const playerScore = gameScreen.querySelector('#playerScore');
 
 window.addEventListener('gameStart', _ => {
+    gameScreen.style.display = 'block'; 
     console.log('event fired');
 });
+
+function startGame() {
+
+}
