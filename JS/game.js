@@ -28,7 +28,7 @@ hitButton.addEventListener('click', _ => {
         hit(deck, player, false);
     }
 });
-stand.addEventListener('click', _ => {
+standButton.addEventListener('click', _ => {
     if(started) {
         stand();
     }
@@ -47,7 +47,11 @@ window.addEventListener('gameStart', _ => {
 });
 
 function startGame() {
-
+    deck.shuffle();
+    hit(deck, player, false);
+    hit(deck, dealer, false);
+    hit(deck, player, false);
+    hit(deck, dealer, true);
 }
 
 function hit(deckObject, playerObject, flipped) {
