@@ -100,6 +100,7 @@ class Player {
     }
 
     calculateScore(start) {
+        let hiddenScore = 0;
         let workingScore = 0;
         let scoreDict = {
             'jack': 10,
@@ -112,33 +113,56 @@ class Player {
                 aces.push(this.hand[i]);
             }
             else if(Object.keys(scoreDict).includes(this.hand[i].name)) {
-                workingScore += scoreDict[this.hand[i].name];
+                if(this.hand[i].flipped) {
+                    hiddenScore += scoreDict[this.hand[i].name];
+                }
+                else {
+                    workingScore += scoreDict[this.hand[i].name];
+                }
             }
             else {
-                workingScore += this.hand[i].number;
+                if(this.hand[i].flipped) {
+                    hiddenScore += this.hand[i].number;
+                }
+                else {
+                    workingScore += this.hand[i].number;
+                }
             }
         }
 
         if(aces.length > 0) {
-            if(workingScore + 11 > 21) {
-                workingScore += aces.length * 1;
+            if((workingScore + hiddenScore) + 11 > 21) {
+                for(let i = 0; i < aces.length; i++) {
+                    if(aces[i].flipped) hiddenScore += 1;
+                    else workingScore += 1;
+                    
+                }
             }
             else {
-                workingScore += 11 + ((aces.length - 1) * 1)
+                for(let i = 0; i < aces.length; i++) {
+                    if(aces[i].flipped) {
+                        if(i === 0) hiddenScore += 11;
+                        else hiddenScore += 1;
+                    }
+                    else {
+                        if(i === 0) workingScore += 11;
+                        else workingScore += 1;
+                    }
+                }
             }
         }
         
         let bust = false;
         let blackjack = false;
-        if(workingScore > 21) {
+        if(workingScore + hiddenScore > 21) {
             bust = true
         }
-        else if(start && workingScore === 21){
+        else if(start && workingScore + hiddenScore === 21){
             blackjack = true;
         }
 
-        this.score = workingScore; 
-        this.scoreElement.innerHTML = `${this.score}`;
+        this.score = workingScore + hiddenScore; 
+        this.scoreElement.innerHTML = `${workingScore}`;
         if(bust){
             this.scoreElement.classList.add('bust');
         }
