@@ -24,8 +24,9 @@ const player = new Player(gameScreen.querySelector('#playerHand'),
 gameScreen.querySelector('#playerScore'));
 
 let started = false;
+let playerStood = false;
 hitButton.addEventListener('click', _ => {
-    if(started) {
+    if(started && !playerStood) {
         hit(deck, player, false);
         let playerScore = player.calculateScore(false);
         if(playerScore[1]) {
@@ -34,7 +35,7 @@ hitButton.addEventListener('click', _ => {
     }
 });
 standButton.addEventListener('click', _ => {
-    if(started) {
+    if(started && !playerStood) {
         stand();
     }
 });
@@ -78,7 +79,10 @@ function hit(deckObject, playerObject, flipped) {
 }
 
 function stand() {
-
+    playerStood = true;
+    dealer.hand[1].flip();
+    dealer.calculateScore();
+    dealerAi();
 }
 
 function dealerAi() {
