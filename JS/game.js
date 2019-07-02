@@ -82,7 +82,20 @@ function stand() {
 }
 
 function dealerAi() {
+    if(dealer.score >= dealerStandValue) {
+        end(1);
+        return;
+    }
 
+    hit(deck, dealer, false);
+    let score = dealer.calculateScore(false);
+    if(score[1]) {
+        end(5);
+        return;
+    }
+    else{
+        return dealerAi();
+    }
 }
 
 function end(condition, data) {
