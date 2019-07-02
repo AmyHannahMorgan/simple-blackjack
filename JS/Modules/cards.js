@@ -99,8 +99,51 @@ class Player {
         this.handElement.appendChild(cardElement);
     }
 
-    calculateScore() {
+    calculateScore(start) {
+        let workingScore = 0;
+        let scoreDict = {
+            'jack': 10,
+            'queen':10,
+            'king': 10
+        };
+        let aces = [];
+        for(let i = 0; i < this.hand.length; i++) {
+            if(this.hand[i].number === 1) {
+                aces.push(this.hand[i]);
+            }
+            else if(Object.keys(scoreDict).includes(this.hand[i].name)) {
+                workingScore += scoreDict[this.hand[i].name];
+            }
+            else {
+                workingScore += this.hand[i].number;
+            }
+        }
 
+        if(aces.length > 0) {
+            if(workingScore + 11 > 21) {
+                workingScore += aces.length * 1;
+            }
+            else {
+                workingScore += 11 + ((aces.length - 1) * 1)
+            }
+        }
+        
+        let bust = false;
+        let blackjack = false;
+        if(workingScore > 21) {
+            bust = true
+        }
+        else if(start && workingScore === 21){
+            blackjack = true;
+        }
+
+        this.score = workingScore; 
+        this.scoreElement.innerHTML = `${this.score}`;
+        if(bust){
+            this.scoreElement.classList.add('bust');
+        }
+
+        return [this.score, bust, blackjack];
     }
 }
 
