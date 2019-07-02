@@ -52,6 +52,8 @@ function startGame() {
     hit(deck, dealer, false);
     hit(deck, player, false);
     hit(deck, dealer, true);
+    player.calculateScore(true);
+    dealer.calculateScore(true);
 }
 
 function hit(deckObject, playerObject, flipped) {
