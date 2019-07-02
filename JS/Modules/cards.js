@@ -35,7 +35,7 @@ export class Card {
     }
 }
 
-export class deck {
+export class Deck {
     constructor(deckCount) {
         let cardDict = {
             1: "ace",
