@@ -22,3 +22,7 @@ window.addEventListener('click', event => {
         rulesModal.classList.toggle('open');
     }
 });
+
+window.addEventListener('gameQuit', _ => {
+    startMenu.style.display = '';
+});
