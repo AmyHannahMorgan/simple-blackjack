@@ -313,6 +313,16 @@ body {
     background-color: var(--error-color);
 }
 
+/* ids */
+#endGameMessage {
+    font-family: var(--display-font);
+    font-size: 10vmin;
+    color: var(--black-text-color);
+    text-align: center;
+
+    margin: auto
+}
+
 /* media queries */
 @media only screen and (orientation: landscape){
     .buttonContainer > .buttonGrid.play {
