@@ -16,6 +16,8 @@ manifestReq.send();
 const gameScreen = document.querySelector('.gameScreen');
 const hitButton = gameScreen.querySelector('#hitButton');
 const standButton = gameScreen.querySelector('#standButton');
+const endGameModal = document.querySelector('#endGameModal');
+const endGameText = endGameModal.querySelector('#endGameMessage');
 
 const dealerStandValue = 17;
 const dealer = new Player(gameScreen.querySelector('#dealerHand'), 
@@ -110,33 +112,56 @@ function end(condition, data) {
     switch(condition) {
         case 1: // normal end, both players stand. check for draw
             console.log('all players stood');
-            if(dealer.score === player.score) console.log('draw');
+            if(dealer.score === player.score) {
+                console.log('draw');
+                endGameText.innerHTML = 'Draw!';
+                endGameModal.classList.toggle('open');
+            }
             else{
-                if(dealer.score > player.score) console.log('dealer wins');
-                else console.log('player wins');
+                if(dealer.score > player.score) {
+                    console.log('dealer wins');
+                    endGameText.innerHTML = 'You Lose!';
+                    endGameModal.classList.toggle('open');
+                }
+                else {
+                    console.log('player wins');
+                    endGameText.innerHTML = 'You Win!';
+                    endGameModal.classList.toggle('open');
+                }
             }
             break;
         case 2: // player blackjack, check for dealer blackjack
             console.log('player has blackjack');
             dealer.hand[1].flip();
             dealer.calculateScore();
-            if(dealer.score === player.score) console.log('draw');
+            if(dealer.score === player.score) {
+                console.log('draw');
+                endGameText.innerHTML = 'Double Blackjack <br> Both you and the Dealer have blackjack';
+                endGameModal.classList.toggle('open');
+            }
             else{
-                if(dealer.score > player.score) console.log('dealer wins');
-                else console.log('player wins');
+                console.log('player wins');
+                endGameText.innerHTML = 'Blackjack! <br> You Win!';
+                endGameModal.classList.toggle('open');
             }
             break;
         case 3: // dealer blackjack
             console.log('dealer has blackjack');
             dealer.hand[1].flip();
+            endGameText.innerHTML = 'Blackjack! <br> The Dealer has blackjack, you lose.';
+            endGameModal.classList.toggle('open');
             break;
         case 4: // player bust
             console.log('player went bust');
             console.log('dealer wins');
+            endGameText.innerHTML = 'You went bust!'
+            endGameModal.classList.toggle('open');
             break;
         case 5: // dealer bust
             console.log('dealer went bust');
             console.log('player wins');
+            endGameText.innerHTML = 'You win! <br> The Dealer went bust!'
+            endGameModal.classList.toggle('open');
             break;
     }
 }
