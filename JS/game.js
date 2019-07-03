@@ -65,28 +65,35 @@ window.addEventListener('gameStart', _ => {
 
 function startGame() {
     deck.shuffle();
-    hit(deck, player, false);
-    hit(deck, dealer, false);
-    hit(deck, player, false);
-    hit(deck, dealer, true);
-    let playerScore = player.calculateScore(true);
-    let dealerScore = dealer.calculateScore(true);
-    if(playerScore[2]) {
-        end(2);
-    }
-    else if(dealerScore[2]) {
-        end(3);
-    }
-    started = true;
+    hit(deck, player, false)
+    .then(_ => hit(deck, dealer, false))
+    .then(_ => hit(deck, player, false))
+    .then(_ => hit(deck, dealer, true))
+    .then(() => {
+        let playerScore = player.calculateScore(true);
+        let dealerScore = dealer.calculateScore(true);
+        if(playerScore[2]) {
+            end(2);
+        }
+        else if(dealerScore[2]) {
+            end(3);
+        }
+        started = true;
+    });
+    
+    
 }
 
 function hit(deckObject, playerObject, flipped) {
-    let card = deckObject.draw();
-    let cardFront = fetchTexture(card);
-    let back = textures.backs.root + textures['backs']['backs'][cardBack]
-    let cardElem = spawnCard(card, flipped, cardFront, back);
+    return new Promise((resolve, reject) => {
+        let card = deckObject.draw();
+        let cardFront = fetchTexture(card);
+        let back = textures.backs.root + textures['backs']['backs'][cardBack]
+        let cardElem = spawnCard(card, flipped, cardFront, back);
 
-    playerObject.appendCard(card, cardElem);
+        playerObject.appendCard(card, cardElem);
+        setTimeout(resolve, 500);
+    });
 }
 
 function stand() {
