@@ -170,6 +170,20 @@ class Player {
 
         return [this.score, bust, blackjack];
     }
+
+    reset() {
+        this.score = 0;
+
+        this.scoreElement.innerHTML = '';
+        this.scoreElement.classList.remove('bust');
+
+        this.hand = [];
+
+        console.log(this.handElement.firstChild);
+        while(this.handElement.firstChild) {
+            this.handElement.removeChild(this.handElement.firstChild);
+        }
+    }
 }
 
 function rng(min, max) {
