@@ -16,8 +16,11 @@ manifestReq.send();
 const gameScreen = document.querySelector('.gameScreen');
 const hitButton = gameScreen.querySelector('#hitButton');
 const standButton = gameScreen.querySelector('#standButton');
+
 const endGameModal = document.querySelector('#endGameModal');
 const endGameText = endGameModal.querySelector('#endGameMessage');
+const restartButton = endGameModal.querySelector('#restartButton');
+const quitButton = endGameModal.querySelector('#quitButton');
 
 const dealerStandValue = 17;
 const dealer = new Player(gameScreen.querySelector('#dealerHand'), 
@@ -41,6 +44,12 @@ standButton.addEventListener('click', _ => {
         stand();
     }
 });
+restartButton.addEventListener('click', _ => {
+    reset();
+});
+quitButton.addEventListener('click', _ => {
+    quit();
+})
 
 // const dealerHand = gameScreen.querySelector('#dealerHand');
 // const playerHand = gameScreen.querySelector('#playerHand');
@@ -109,6 +118,7 @@ function dealerAi() {
 }
 
 function end(condition, data) {
+    started = false;
     switch(condition) {
         case 1: // normal end, both players stand. check for draw
             console.log('all players stood');
@@ -164,6 +174,27 @@ function end(condition, data) {
             endGameModal.classList.toggle('open');
             break;
     }
+}
+
+function reset() {
+    deck.reset();
+    player.reset();
+    dealer.reset();
+    endGameModal.classList.toggle('open');
+    playerStood = false;
+    startGame();
+}
+
+function quit() {
+    deck.reset();
+    player.reset();
+    dealer.reset();
+    endGameModal.classList.toggle('open');
+    playerStood = false;
+
+    gameScreen.style.display = '';
+    let quitEvent = new CustomEvent('gameQuit', {});
+    window.dispatchEvent(quitEvent);
 }
 
 function spawnCard(cardObj, flipped, cardFrontSrc, cardBackSrc) {
