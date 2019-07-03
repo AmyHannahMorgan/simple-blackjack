@@ -308,6 +308,24 @@ body {
     font-size: 4vmin;
 }
 
+.modalContent > .controlContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modalContent > .controlContainer > button {
+    width: 80%;
+    margin: 5% auto auto;
+
+    font-family: var(--print-font);
+    font-size: 7.5vmin;
+    color: var(--white-text-color);
+
+    background-color: var(--dark-bg-color);
+    border: none;
+}
+
 /* extra classes */
 .bust {
     background-color: var(--error-color);
