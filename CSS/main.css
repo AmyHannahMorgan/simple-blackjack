@@ -13,6 +13,8 @@
 
     --display-font: 'Vollkorn', serif;
     --print-font: 'Noto Sans', sans-serif;
+
+    font-size: 1vmin;
 }
 
 /* animations */
@@ -26,7 +28,7 @@
     }
 }
 
-/* ids */
+/* tags */
 body {
     margin: 0;
 }
@@ -49,7 +51,7 @@ body {
     font-family: var(--display-font);
     color: var(--black-text-color);
     text-align: center;
-    font-size: 20vmin;
+    font-size: 20rem;
 
     margin: auto;
 }
@@ -108,7 +110,7 @@ body {
     
     color: var(--white-text-color);
     font-family: var(--print-font);
-    font-size: 10vmin;
+    font-size: 10rem;
 
     transition: background-color 0.25s ease-in-out;
 }
@@ -128,7 +130,7 @@ body {
 
 .gameScreen > h2 {
     font-family: var(--display-font);
-    font-size: 6vmin;
+    font-size: 6rem;
     color: var(--black-text-color);
 
     margin: 1vmin;
@@ -185,7 +187,7 @@ body {
     
     color: var(--white-text-color);
     font-family: var(--print-font);
-    font-size: 10vmin;
+    font-size: 10rem;
 
     transition: background-color 0.25s ease-in-out;
 }
@@ -261,13 +263,14 @@ body {
     width: 75vw;
     max-width: 75vw;
     max-height: 75vh;
+    padding-bottom: 1rem;
 
     background-color: var(--light-bg-color);
     border: medium solid var(--highlight-light);
     border-radius: 25px;
 
     color: var(--black-text-color);
-    overflow: scroll;
+    overflow-y: auto;
 }
 
 .modal.open {
@@ -287,7 +290,7 @@ body {
 
 .modalContent > .modalHeader > h2 {
     font-family: var(--display-font);
-    font-size: 10vmin;
+    font-size: 10rem;
 
     margin: 25px 1vw 0 1vw;
 
@@ -301,11 +304,11 @@ body {
 }
 
 .modalContent > .modalText > h3 {
-    font-size: 5vmin;
+    font-size: 5rem;
 }
 
 .modalContent > .modalText > p {
-    font-size: 4vmin;
+    font-size: 4rem;
 }
 
 .modalContent > .controlContainer {
@@ -319,7 +322,7 @@ body {
     margin: 5% auto auto;
 
     font-family: var(--print-font);
-    font-size: 7.5vmin;
+    font-size: 7.5rem;
     color: var(--white-text-color);
 
     background-color: var(--dark-bg-color);
@@ -334,7 +337,7 @@ body {
 /* ids */
 #endGameMessage {
     font-family: var(--display-font);
-    font-size: 10vmin;
+    font-size: 10rem;
     color: var(--black-text-color);
     text-align: center;
 
@@ -361,5 +364,34 @@ body {
     .controls > .controlsGrid.stand {
         grid-column: horizontal-area-2 / edge-spacer-end;
         grid-row: vertical-area-1 / center-spacer;
+    }
+}
+
+@media only screen and (orientation: landscape) and (min-height: 500px),
+(orientation: portrait) and (min-width: 500px) {
+    :root {
+        font-size: 5px;
+    }
+
+    .gameScreen {
+        width: 500px;
+        max-width: 500px;
+
+        margin: auto;
+    }
+
+    .controls {
+        width: 80%;
+        max-width: 80%;
+    }
+
+    .startMenu {
+        width: 500px;
+        max-width: 500px;
+    }
+
+    .startMenu > .buttonContainer {
+        width: 80%;
+        max-width: 80%;
     }
 }
