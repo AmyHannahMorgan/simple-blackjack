@@ -1,0 +1,83 @@
+{
+    "fronts": {
+        "root": "Assets/Cards/",
+        "spades": {
+            "root": "Spades/",
+            "cards": {
+                "ace": "Spade-ace.svg",
+                "2": "Spade-2.svg",
+                "3": "Spade-3.svg",
+                "4": "Spade-4.svg",
+                "5": "Spade-5.svg",
+                "6": "Spade-6.svg",
+                "7": "Spade-7.svg",
+                "8": "Spade-8.svg",
+                "9": "Spade-9.svg",
+                "10": "Spade-10.svg",
+                "jack": "Spade-jack.svg",
+                "queen": "Spade-queen.svg",
+                "king": "Spade-king.svg"
+            }
+        },
+        "clubs": {
+            "root": "Clubs/",
+            "cards": {
+                "ace": "Club-ace.svg",
+                "2": "Club-2.svg",
+                "3": "Club-3.svg",
+                "4": "Club-4.svg",
+                "5": "Club-5.svg",
+                "6": "Club-6.svg",
+                "7": "Club-7.svg",
+                "8": "Club-8.svg",
+                "9": "Club-9.svg",
+                "10": "Club-10.svg",
+                "jack": "Club-jack.svg",
+                "queen": "Club-queen.svg",
+                "king": "Club-king.svg"
+            }
+        },
+        "hearts": {
+            "root": "Hearts/",
+            "cards": {
+                "ace": "Heart-ace.svg",
+                "2": "Heart-2.svg",
+                "3": "Heart-3.svg",
+                "4": "Heart-4.svg",
+                "5": "Heart-5.svg",
+                "6": "Heart-6.svg",
+                "7": "Heart-7.svg",
+                "8": "Heart-8.svg",
+                "9": "Heart-9.svg",
+                "10": "Heart-10.svg",
+                "jack": "Heart-jack.svg",
+                "queen": "Heart-queen.svg",
+                "king": "Heart-king.svg"
+            }
+        },
+        "diamonds": {
+            "root": "Diamonds/",
+            "cards": {
+                "ace": "Diamond-ace.svg",
+                "2": "Diamond-2.svg",
+                "3": "Diamond-3.svg",
+                "4": "Diamond-4.svg",
+                "5": "Diamond-5.svg",
+                "6": "Diamond-6.svg",
+                "7": "Diamond-7.svg",
+                "8": "Diamond-8.svg",
+                "9": "Diamond-9.svg",
+                "10": "Diamond-10.svg",
+                "jack": "Diamond-jack.svg",
+                "queen": "Diamond-queen.svg",
+                "king": "Diamond-king.svg"
+            }
+        }
+    },
+    "backs": {
+        "root": "Assets/Card Backs/",
+        "backs": {
+            "default": "card-back-1.svg"
+        }
+    }
+}

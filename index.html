@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title></title>
+    <link rel="stylesheet" href="CSS/main.css">
+</head>
+<body>
+    <div class="startMenu">
+        <div class="imageHeader">
+            <img src="Assets/Card symbols/Spade.svg" alt="">
+            <img src="Assets/Card symbols/diamond.svg" alt="">
+            <img src="Assets/Card symbols/club.svg" alt="">
+            <img src="Assets/Card symbols/heart.svg" alt="">
+        </div>
+        <h1>Simple<br>Blackjack</h1>
+        <div class="buttonContainer">
+            <div class="buttonGrid play">
+                <button id="playButton">Play</button>
+            </div>
+            <div class="buttonGrid rules">
+                <button id="rulesButton">Rules</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="gameScreen">
+        <h2>Dealer: <span id="dealerScore"></span></h2>
+        <div class="handDisplay" id="dealerHand">
+            
+        </div>
+        <h2>Player: <span id="playerScore"></span></h2>
+        <div class="handDisplay" id="playerHand">
+
+        </div>
+        <div class="controls">
+            <div class="controlsGrid hit">
+                <button id="hitButton">Hit</button>
+            </div>
+            <div class="controlsGrid stand">
+                <button id="standButton">Stand</button>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="templates">
+
+    </div>
+
+    <div class="modal" id="rulesModal">
+        <div class="modalContent">
+            <div class="modalHeader">
+                <h2>Rules</h2>
+            </div>
+            <div class="modalText">
+                <h3>test</h3>
+                <p>Ad fugiat enim nostrud proident. Qui nisi ullamco esse ullamco qui officia nulla incididunt consectetur do. Voluptate consequat mollit duis labore aliquip reprehenderit enim fugiat quis laborum ipsum aliqua. Consequat occaecat amet voluptate consectetur voluptate eiusmod sunt aliquip voluptate fugiat sit. Excepteur esse ex ea laboris minim ea sit magna et.</p>
+                <h3>test 2</h3>
+                <p>Dolore tempor fugiat tempor duis est non reprehenderit proident sit id aliquip. Excepteur irure tempor voluptate reprehenderit adipisicing irure mollit quis fugiat anim. Eiusmod occaecat eiusmod aliqua consequat adipisicing do est excepteur ipsum ea velit. Amet officia in id id laboris et ipsum irure veniam. Labore enim quis officia sint incididunt ipsum aliquip irure ea duis eiusmod anim elit enim. Ipsum labore qui qui irure amet duis esse sunt irure laborum commodo. Ipsum id ex irure occaecat commodo proident eiusmod proident deserunt ea sint.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="endGameModal">
+        <div class="modalContent">
+            <h2 id="endGameMessage">this is a test</h2>
+            <div class="controlContainer">
+                <button id="restartButton">Restart</button>
+                <button id="quitButton">Quit</button>
+            </div>
+        </div>
+    </div>
+    <script src="JS/Modules/cards.js" type="module"></script>
+    <script src="JS/main.js"></script>
+    <script src="JS/game.js" type="module"></script>
+</body>
+</html>
